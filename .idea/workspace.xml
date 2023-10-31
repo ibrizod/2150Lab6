@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73fbd00a-5417-4ae4-90be-4bebc94ac36c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/cpsc2150/banking/Mortgage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cpsc2150/banking/models/Mortgage.java" afterDir="false" />
-    </list>
+    <list default="true" id="73fbd00a-5417-4ae4-90be-4bebc94ac36c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
