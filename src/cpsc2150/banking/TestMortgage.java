@@ -1,4 +1,4 @@
-package cpsc2150.banking.models;
+package src.cpsc2150.banking;
 
 import cpsc2150.banking.models.AbsMortgage;
 import cpsc2150.banking.models.ICustomer;
