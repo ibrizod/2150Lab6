@@ -16,7 +16,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     private double percentDown; // Percent of the house cost covered by the down payment
 
     // Constructor to initialize the Mortgage object
-    public Mortgage(ICustomer customer, double principal, int years, double percentDown, double downpayment) {
+    public Mortgage(ICustomer customer, double principal, int years, double percentDown, double payment) {
         super(principal);
         this.debtToIncomeRatio = debtToIncomeRatio;
         this.principal = principal;
