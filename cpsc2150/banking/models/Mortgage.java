@@ -37,7 +37,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
         this.Principal = costOfHome - downPayment;
         this.PercentDown = downPayment / costOfHome;
-        this.NumberOfPayments = years * MONTHS_IN_YEAR;
+        this.NumberOfPayments = years * IMortgage.MONTHS_IN_YEAR;
         this.Rate = computeAPR(costOfHome, downPayment, years, customer);
         this.Payment = computePayment();
         this.Customer = customer;
@@ -45,27 +45,27 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     }
 
     private double computeAPR(double costOfHome, double downPayment, int years, ICustomer customer) {
-        double APR = BASERATE;
+        double APR = IMortgage.BASERATE;
 
-        APR += (years < MAX_YEARS) ? GOODRATEADD : NORMALRATEADD;
+        APR += (years < IMortgage.MAX_YEARS) ? IMortgage.GOODRATEADD : IMortgage.NORMALRATEADD;
 
-        if (PercentDown < PREFERRED_PERCENT_DOWN) {
-            APR += GOODRATEADD;
+        if (PercentDown < IMortgage.PREFERRED_PERCENT_DOWN) {
+            APR += IMortgage.GOODRATEADD;
         }
 
         int creditScore = customer.getCreditScore();
 
-        if (creditScore < BADCREDIT) {
-            APR += VERYBADRATEADD;
-        } else if (creditScore < FAIRCREDIT) {
-            APR += BADRATEADD;
-        } else if (creditScore < GOODCREDIT) {
-            APR += NORMALRATEADD;
-        } else if (creditScore < GREATCREDIT) {
-            APR += GOODRATEADD;
+        if (creditScore < IMortgage.BADCREDIT) {
+            APR += IMortgage.VERYBADRATEADD;
+        } else if (creditScore < IMortgage.FAIRCREDIT) {
+            APR += IMortgage.BADRATEADD;
+        } else if (creditScore < IMortgage.GOODCREDIT) {
+            APR += IMortgage.NORMALRATEADD;
+        } else if (creditScore < IMortgage.GREATCREDIT) {
+            APR += IMortgage.GOODRATEADD;
         }
 
-        return APR / MONTHS_IN_YEAR;
+        return APR / IMortgage.MONTHS_IN_YEAR;
     }
 
     private double computePayment() {
@@ -74,7 +74,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     @Override
     public boolean loanApproved() {
-        return (Rate * 12 < RATETOOHIGH) && (PercentDown >= MIN_PERCENT_DOWN) && (DebtToIncomeRatio <= DTOITOOHIGH);
+        return (Rate * 12 < IMortgage.RATETOOHIGH) && (PercentDown >= IMortgage.MIN_PERCENT_DOWN) && (DebtToIncomeRatio <= IMortgage.DTOITOOHIGH);
     }
 
     @Override
@@ -94,6 +94,6 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
     @Override
     public int getYears() {
-        return NumberOfPayments / MONTHS_IN_YEAR;
+        return NumberOfPayments / IMortgage.MONTHS_IN_YEAR;
     }
 }
